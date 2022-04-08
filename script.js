@@ -27,7 +27,6 @@ let weather = {
         const { name } = data;
         const { icon, description } = data.weather[0];
         const { temp, humidity, temp_min, temp_max } = data.main;
-        console.log(name, icon, description, temp, humidity, temp_min, temp_max)
         cityname.innerHTML = `<h1>${name}</h1>`;
         iconElement.src = "https://openweathermap.org/img/wn/"+ icon +"@2x.png"
         temperatureElement.innerHTML = `<h2>${temp}°F</h2>`
@@ -90,7 +89,7 @@ const statesearchelement = document.querySelector("#statesearch")
 let geocodingweather = {
     apiKey: "29ca9ea9f6444ce633a4839afec9db0a",
     fetchcity: function(cityname, statecode){
-        fetch("http://api.openweathermap.org/geo/1.0/direct?q="+cityname+","+statecode+",us&limit=5&us&appid=" + this.apiKey)
+        fetch("https://api.openweathermap.org/geo/1.0/direct?q="+cityname+","+statecode+",us&limit=5&us&appid=" + this.apiKey)
         .then((response) => response.json())
         .then((data) => this.coordinates(data));
     },
