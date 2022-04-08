@@ -82,8 +82,9 @@ const tempminelement3 = document.querySelector("#tempmin3")
 const tempmaxelement3 = document.querySelector("#tempmax3")
 const humidityelement3 = document.querySelector("#humidity3")
 
-let latitude = 0.0
-let longtitude = 0.0
+const submitbuttonelement = document.querySelector("#submitbutton")
+const citysearchelement = document.querySelector("#citysearch")
+const statesearchelement = document.querySelector("#statesearch")
 
 let geocodingweather = {
     apiKey: "29ca9ea9f6444ce633a4839afec9db0a",
@@ -150,19 +151,26 @@ let geocodingweather = {
         humidityelement3.innerText = `Humidity: ${humidity2}%`;
     },
 
-    
+    search: function () {
+        geocodingweather.fetchcity(citysearchelement.value, statesearchelement.value);
 }
 
 
-enterbutton.addEventListener("click", function(){
-    weatherdaily.search();
-    document.querySelector("#weatherinfo").classList.remove("invisible")
+}
+
+submitbuttonelement.addEventListener("click", function(){
+    geocodingweather.search();
+    document.querySelector("#day1").classList.remove("invisible")
+    document.querySelector("#day2").classList.remove("invisible")
+    document.querySelector("#day3").classList.remove("invisible")
     })
     
     searchbar.addEventListener("keyup", function(event) {
         if( event.key == "Enter") {
-            weatherdaily.search();
-            document.querySelector("#weatherinfo").classList.remove("invisible")
+            geocodingweather.search();
+            document.querySelector("#day1").classList.remove("invisible")
+            document.querySelector("#day2").classList.remove("invisible")
+            document.querySelector("#day3").classList.remove("invisible")
         }
         
     })
