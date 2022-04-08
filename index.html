@@ -37,6 +37,7 @@
         <div id = "weatherinfo" class="d-flex flex-column align-items-center invisible">
           <div class = "text-center">
             <img src ="" id="location-icon" />
+            <div id = "currenttime" class="small"><p>-</p></div>
             <div id = "cityname"><p><h1>-</h1></p></div>
             <div id = "temperature-value"><p><h2>- °F</h2></p></div>
             <div id = "temperature-description" class = "text-capitalize"><p>-</p></div>
@@ -46,7 +47,13 @@
       </div>
       rightbox
     </div>
-    <div class = "d-flex justify-content-around pt-5 mt-5">sda</div>
+    <div class = "d-flex justify-content-around pt-5 mt-5">sda
+      <div></div><input id="citysearch" type="text" placeholder = "Enter your city name"><select class="form-select form-select-sm" aria-label=".form-select-sm example">
+      <option selected>Open this select menu</option>
+      <option value="1">One</option>
+      <option value="2">Two</option>
+      <option value="3">Three</option>
+    </select></div>
     <div class="d-flex justify-content-around"><div id = "day1" class="d-flex flex-column align-items-center">
         <div class = "text-center">
           <img src ="" id="location-icon1" />
