@@ -40,6 +40,7 @@ let weather = {
 
     search: function () {
         this.fetchWeather(searchbar.value);
+        searchbar.value = "";
     }
 }
 
@@ -153,6 +154,8 @@ let geocodingweather = {
 
     search: function () {
         geocodingweather.fetchcity(citysearchelement.value, statesearchelement.value);
+        citysearchelement.value = "";
+        statesearchelement.value = "State";
 }
 
 
