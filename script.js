@@ -11,7 +11,7 @@ const searchbar = document.querySelector("#search")
 const timetext = document.querySelector("#currenttime")
 
 setInterval(() => {
-    const time = new Date();
+    const time = new Date().toDateString();
     timetext.innerText = time
 }, 1000);
 
