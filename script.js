@@ -10,6 +10,8 @@ const enterbutton = document.querySelector("#clickbutton")
 const searchbar = document.querySelector("#search")
 const timetext = document.querySelector("#currenttime")
 
+const converterbutton = document.querySelector("#buttonhey")
+
 setInterval(() => {
     const time = new Date().toDateString();
     timetext.innerText = time
@@ -35,6 +37,20 @@ let weather = {
         tempmaxelement.innerText = `Highest: ${temp_max}°F`;
         humidityelement.innerText = `Humidity: ${humidity}%`
 
+        let converter = function convertFahrenheitToCelsius(temperature) {
+            // Take whatever temperature the function is handed, do some math and return it.
+            return Math.round((temperature - 32) * (5/9));
+            
+        }
+        
+        converterbutton.addEventListener("click", function(){
+
+            temperatureElement.innerHTML = `<h2>${converter(temp)}°C</h2>`
+            tempminelement.innerText = `Lowest: ${converter(temp_min)}°C`;
+            tempmaxelement.innerText = `Highest: ${converter(temp_max)}°C`;
+            
+        })
+
     },
 
     search: function () {
@@ -42,6 +58,7 @@ let weather = {
         searchbar.value = "";
     }
 }
+
 
 enterbutton.addEventListener("click", function(){
 weather.search();
@@ -53,8 +70,11 @@ searchbar.addEventListener("keyup", function(event) {
         weather.search();
         document.querySelector("#weatherinfo").classList.remove("invisible")
     }
-    
+
+
 })
+
+
 
 //ASSIGNMENT2
 
@@ -85,6 +105,7 @@ const humidityelement3 = document.querySelector("#humidity3")
 const submitbuttonelement = document.querySelector("#submitbutton")
 const citysearchelement = document.querySelector("#citysearch")
 const statesearchelement = document.querySelector("#statesearch")
+const converterbutton2 = document.querySelector("#buttonhey2")
 
 let geocodingweather = {
     apiKey: "29ca9ea9f6444ce633a4839afec9db0a",
@@ -149,7 +170,29 @@ let geocodingweather = {
         tempminelement3.innerText = `Lowest: ${temp_min2}°F`;
         tempmaxelement3.innerText = `Highest: ${temp_max2}°F`;
         humidityelement3.innerText = `Humidity: ${humidity2}%`;
+
+        let converter2 = function convertFahrenheitToCelsius(temperature) {
+            // Take whatever temperature the function is handed, do some math and return it.
+            return Math.round((temperature - 32) * (5/9));
+            
+        }
+        
+        converterbutton2.addEventListener("click", function(){
+
+            temperatureElement1.innerHTML = `<h2>${converter2(temp0)}°C</h2>`
+            tempminelement1.innerText = `Lowest: ${converter2(temp_min0)}°C`;
+            tempmaxelement1.innerText = `Highest: ${converter2(temp_max0)}°C`;
+            temperatureElement2.innerHTML = `<h2>${converter2(temp1)}°C</h2>`
+            tempminelement2.innerText = `Lowest: ${converter2(temp_min1)}°C`;
+            tempmaxelement2.innerText = `Highest: ${converter2(temp_max1)}°C`;
+            temperatureElement3.innerHTML = `<h2>${converter2(temp2)}°C</h2>`
+            tempminelement3.innerText = `Lowest: ${converter2(temp_min2)}°C`;
+            tempmaxelement3.innerText = `Highest: ${converter2(temp_max2)}°C`;
+            
+        })
     },
+
+    
 
     search: function () {
         geocodingweather.fetchcity(citysearchelement.value, statesearchelement.value);
@@ -176,3 +219,13 @@ submitbuttonelement.addEventListener("click", function(){
         }
         
     })
+
+
+//FAHRENHEITBUTTON
+
+function convertFahrenheitToCelsius(temperature) {
+    // Take whatever temperature the function is handed, do some math and return it.
+    return Math.round((temperature - 32) * (5/9));
+    
+}
+
